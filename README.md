@@ -1,6 +1,6 @@
 # LIUMCVC WMT17 Systems
 
-![mmt](mmt.png?raw=true "mmt"]
+![mmt](./mmt.png?raw=true "mmt")
 
 This repository contains necessary scripts and data files to replicate
 the results of LIUM-CVC submissions to Multimodal Translation (MMT)
