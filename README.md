@@ -51,3 +51,9 @@ automatic metrics.
 
 **Note**: The script should be launched directly from the `wmt17-mmt` checkout
 folder.
+
+### Image Features
+
+Once the above preprocessing step is completed, you will need to download
+and extract the image features under `data/images` as described in the
+relevant [README](data/images/) file.
