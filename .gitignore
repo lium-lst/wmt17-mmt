@@ -1,2 +1,5 @@
 data.tok.bpe/*
 !data.tok.bpe/README.md
+
+models/*
+!models/README.md
