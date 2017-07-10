@@ -1,4 +1,2 @@
-data.tok.bpe/*.en
-data.tok.bpe/*.de
-data.tok.bpe/*.fr
-data.tok.bpe/bpe*
+data.tok.bpe/*
+!data.tok.bpe/README.md
