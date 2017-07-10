@@ -1,1 +1,4 @@
-data.tok.bpe/*.{en,de,fr}
+data.tok.bpe/*.en
+data.tok.bpe/*.de
+data.tok.bpe/*.fr
+data.tok.bpe/bpe*
