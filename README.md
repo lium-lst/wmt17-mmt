@@ -2,12 +2,13 @@
 
 This repository contains necessary scripts and data files to replicate
 the results of LIUM-CVC submissions to Multimodal Translation (MMT)
-task of WMT17 for both en->de and en->fr. You need to install
-[nmtpy](https://github.com/lium-lst/nmtpy.git) in order to follow this tutorial.
+task of WMT17 for both en->de and en->fr.
+
+**Note** : You need to install [nmtpy](https://github.com/lium-lst/nmtpy.git) in order to follow this tutorial.
 
 ## Data
 
-The `data/` folder contains all English, German and French
+The `data/` folder contains all English, German and French corpora files from
 [Multi30k](https://arxiv.org/abs/1605.00459) dataset
 necessary to train and evaluate the systems. A secondary ambiguous MSCOCO test set
 is also provided along with the main Flickr30k sets. All the files
@@ -22,3 +23,31 @@ under `data/` are verbatim copies of files downloaded from the
 
 The `*_images.txt` files are text files containing the list of image names
 for each split as they are ordered in the image features files.
+
+## Preparation
+
+The script `scripts/preprocess-bpe-pkl.sh` will first use the following scripts
+(which should be **available** in your `$PATH`) from
+[Moses](https://github.com/moses-smt/mosesdecoder) repository in order to preprocess the corpora:
+
+ - Normalize punctuations (`normalize-punctuation.perl`)
+ - Tokenize (`tokenizer. Lowercase (`lowercase.perl`)
+ - Lowercase (`lowercase.perl`)
+
+It will then learn a joint BPE model with 10K merge operations
+(for `en->de` and `en->fr` separately)
+using the tools provided by the [subword-nmt](https://github.com/rsennrich/subword-nmt) repository. You need
+to adapt the script to point to the correct **subword-nmt** folder
+by modifying the variables `BPE_APPLY` and `BPE_LEARN`.
+
+Once the BPE-ized files are saved under `data.tok.bpe/bpe.en-de` and `data.tok.bpe/bpe.en-fr`, `nmt-build-dict` from `nmtpy` project will be used to create the vocabulary `.pkl` files in the respective folders.
+
+Since the multimodal architectures have their own data iterators, they need a special `.pkl` corpora file for each Flickr30k and MSCOCO split. These files are created by `scripts/raw2pkl` which is automatically called from `scripts/preprocess-bpe-pkl.sh`.
+
+In the end, the files in `data.tok.bpe/bpe.en-{de,fr}` will be the files
+that are used by `nmtpy`. The non-BPE versions of validation and test sets
+from `data.tok.bpe` will also be used when scoring the hypotheses with
+automatic metrics.
+
+**Note**: The script should be launched directly from the `wmt17-mmt` checkout
+folder.
