@@ -57,3 +57,35 @@ folder.
 Once the above preprocessing step is completed, you will need to download
 and extract the image features under `data/images` as described in the
 relevant [README](data/images/) file.
+
+## Training
+
+You should now be ready to train monomodal and multimodal architectures
+using the prepared data. If everything went well and you have a recent
+enough installation of `nmtpy`, you can use the following commands to
+start training your baselines:
+
+```
+# Monomodal En->De system
+$ nmt-train -c config/monomodal-en-de.conf
+
+# Monomodal En->Fr system
+$ nmt-train -c config/monomodal-en-fr.conf
+
+# MNMT (trgmul variant) En->De system
+$ nmt-train -c config/mnmt-en-de.conf
+
+# MNMT (trgmul variant) En->Fr system
+$ nmt-train -c config/mnmt-en-fr.conf
+
+# MNMT (fusion with conv features) En->De system
+$ nmt-train -c config/fusion-en-de.conf
+
+# MNMT (fusion with conv features) En->Fr system
+$ nmt-train -c config/fusion-en-fr.conf
+```
+
+These configurations will save the best `.npz` checkpoints
+under `models/` inside your `wmt17-mmt` checkout.
+
+## Evaluation & Results
