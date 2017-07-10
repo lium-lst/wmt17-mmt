@@ -1,4 +1,4 @@
-# LIUMCVC WMT17 Systems
+# LIUM-CVC WMT17 Multimodal Translation Systems
 
 ![mmt](./mmt.png?raw=true "mmt")
 
