@@ -31,7 +31,7 @@ The script `scripts/preprocess-bpe-pkl.sh` will first use the following scripts
 [Moses](https://github.com/moses-smt/mosesdecoder) repository in order to preprocess the corpora:
 
  - Normalize punctuations (`normalize-punctuation.perl`)
- - Tokenize (`tokenizer. Lowercase (`lowercase.perl`)
+ - Tokenize (`tokenizer.perl`)
  - Lowercase (`lowercase.perl`)
 
 It will then learn a joint BPE model with 10K merge operations
