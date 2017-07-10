@@ -19,3 +19,6 @@ under `data/` are verbatim copies of files downloaded from the
 - `test2016.*` : 1000 sentences
 - `test2017.*` : 1000 sentences
 - `testcoco.*` : 461 sentences
+
+The `*_images.txt` files are text files containing the list of image names
+for each split as they are ordered in the image features files.
