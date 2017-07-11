@@ -90,7 +90,31 @@ $ nmt-train -c config/fusion-en-fr.conf
 These configurations will save the best `.npz` checkpoints
 under `models/` inside your `wmt17-mmt` checkout.
 
-## Evaluation & Results
+## Decoding & Scoring
+
+```
+# Decode test2017 for monomodal en->de
+$ nmt-translate -m models/monomodal-en-de/attention-e128-r256-...-s1234.1.BEST.npz \
+                -S data.tok.bpe/bpe.en-de/test2017.norm.tok.lc.bpe10000.en \
+                -o nmt.test2017.tok.de
+
+# Decode test2017 for mnmt en->de
+$ nmt-translate -m models/mnmt-en-de/mnmt_trgmul-e128-i2048-r256-...-s1234.1.BEST.npz \
+                -S data.tok.bpe/bpe.en-de/test2017.bpe10000.pkl \
+                   data/images/resnet50-imagenet-pool5/flickr30k_ResNet50_pool5_test2017.npy \
+                -o mnmt.test2017.tok.de
+
+# Score both systems (Output stripped to fit here)
+$ nmt-coco-metrics -l de -r data.tok.bpe/test2017.norm.tok.lc.de -s *test2017.tok.de
+
+|    Bleu_1     ||    Bleu_2     ||    Bleu_3     ||    Bleu_4     ||    METEOR   |
+nmt.test2017.tok.de
+|    63.321     ||    48.730     ||    38.804     ||    31.255     ||    51.274   |
+mnmt.test2017.tok.de
+|    64.342     ||    49.977     ||    39.879     ||    32.112     ||    51.529   |
+```
+
+## Results
 
 (Note that the results below belong to single runs while the ones reported
 in the paper are averages and ensembles of 5 runs.)
