@@ -1,5 +1,7 @@
 data.tok.bpe/*
 !data.tok.bpe/README.md
+!data.tok.bpe/test2017.norm.tok.lc.de
+!data.tok.bpe/testcoco.norm.tok.lc.de
 
 data/images/*
 !data/images/README.md
