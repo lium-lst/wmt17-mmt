@@ -92,10 +92,13 @@ under `models/` inside your `wmt17-mmt` checkout.
 
 ## Evaluation & Results
 
+(Note that the results below belong to single runs while the ones reported
+in the paper are averages and ensembles of 5 runs.)
+
 | System          | Val METEOR/BLEU | Test2016 METEOR/BLEU | Test2017 METEOR/BLEU |
 |-----------------|-----------------|----------------------|----------------------|
 | monomodal-en-de | 56.83/39.17     | 57.40/39.00          | 51.27/31.25          |
-| mnmt-en-de      | 56.99/39.15     | 57.05/38.97          |                      |
+| mnmt-en-de      | 56.99/39.15     | 57.05/38.97          | 51.52/32.11          |
 | fusion-en-de    |                 |                      |                      |
 | monomodal-en-fr | 72.87/57.79     | 74.19/59.02          | 68.87/51.93          |
 | mnmt-en-fr      | 73.88/58.93     | 74.75/59.82          | 69.48/52.61          |
