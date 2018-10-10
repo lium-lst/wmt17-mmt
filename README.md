@@ -8,6 +8,11 @@ task of WMT17 for both en->de and en->fr.
 
 **Note** : You need to install [nmtpy](https://github.com/lium-lst/nmtpy.git) in order to follow this tutorial.
 
+## PLEASE READ THIS
+This codebase uses the old `Theano` version of `nmtpy` which is no longer maintained.
+The new codebase is based on `torch` and the config files here are not compatible with that. So this
+repository is not really useful these days.
+
 ## Data
 
 The `data/` folder contains all English, German and French corpora files from
